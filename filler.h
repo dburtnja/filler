@@ -11,7 +11,14 @@
 typedef struct		s_fil
 {
 	int				p_n;
-	char			*str;
+	int				h_map;
+	int				w_map;
+	int				h_tokens;
+	int				w_tokens;
+	char			**map;
+	char			**tokens;
 }					t_fil;
+
+int					read_map(t_fil *info);
 
 #endif
