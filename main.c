@@ -30,6 +30,7 @@ int		main(void)
 	if ((info.p_n = read_player_nbr()) == -1)
 		return (-1);
 	while ((r = read_map(&(info))) > 0);
+	find_coordinates(&info);
 	if (r == -1)
 		perror("Cannot read MAP: ");
 	return (0);

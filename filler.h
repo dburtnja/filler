@@ -20,5 +20,7 @@ typedef struct		s_fil
 }					t_fil;
 
 int					read_map(t_fil *info);
+void				find_coordinates(t_fil *info);
+void				find_hostile(t_fil *info);
 
 #endif
