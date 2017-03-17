@@ -1,6 +1,5 @@
-seed = 4489
-O: timedout
-X: timedout
-./a.out won
+seed = 9593
+X: error on input
+players/abanlin.filler won
 Score:
-0AGAINST0
+118AGAINST0

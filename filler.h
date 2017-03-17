@@ -5,7 +5,7 @@
 #ifndef FILLER_H
 #define FILLER_H
 
-# include <stdio.h>
+//# include <stdio.h>
 # include "libft/libft.h"
 
 typedef struct		s_fil
@@ -25,5 +25,10 @@ void				find_coordinates(t_fil *info);
 void				find_hostile(t_fil *info, char c);
 int					read_tokens(t_fil *info);
 t_list				*write_coordinates(int h, int w, char c);
+int					comp_char(char c, int p_nbr);
+void				print_coordinates(int h, int w);
+void				find_place(t_fil *info);
+void				read_sizes(int *h_size, int *w_size, int from, char *buf);
+
 
 #endif

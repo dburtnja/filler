@@ -4,9 +4,9 @@
 
 #include "filler.h"
 
+
 t_list	*write_coordinates(int h, int w, char c)
 {
-	t_list	*new;
 	int		coor[3];
 
 	coor[0] = h;
@@ -26,16 +26,17 @@ void	find_hostile(t_fil *info, char c)
 	h = 0;
 	while (info->h_map > h)
 	{
+		w = 0;
 		while (info->w_map > w)
 		{
 			if ((info->map)[h][w] == c || (info->map)[h][w] == c - 53)
 			{
-				p = write_coordinates(i, j, c);
+				p = write_coordinates(h, w, c);
 				ft_lstadd_back(&head, p);
 			}
-			j++;
+			w++;
 		}
-		i++;
+		h++;
 	}
 	info->hos_cor = head;
 }
