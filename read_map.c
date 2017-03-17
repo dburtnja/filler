@@ -13,7 +13,6 @@ void	read_sizes(int *h_size, int *w_size, int from, char *buf)
 	while (*p != ' ')
 		p++;
 	*w_size = ft_atoi(p);
-	ft_strdel(&buf);
 }
 
 int		read_map_size(t_fil *info)
@@ -41,7 +40,7 @@ int		read_board(t_fil *info)
 	char	*buf;
 	int		i;
 
-	i = 0;
+	i = 1;
 	while ((gnl = get_next_line(0, &buf)) > 0 && i < info->h_map)
 	{
 		(info->map)[i] = buf + 4;

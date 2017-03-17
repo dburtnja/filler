@@ -28,4 +28,4 @@ void	find_coordinates(t_fil *info)
 {
 	find_hostile(info, (char)(info->p_n == 1 ? 'x' : 'o'));
 	find_place(info);
-}//
+}

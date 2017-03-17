@@ -18,13 +18,15 @@ void	read_string(t_fil *info, char *str, int h)
 	}
 }
 
+
+
 int		read_tokens(t_fil *info)
 {
 	char	*buf;
 	int		gnl;
 	int		h;
 
-	h = 0;
+	h = 1;
 	if ((gnl = get_next_line(0, &buf)) > 0)
 	{
 		read_sizes(&(info->h_tokens), &(info->w_tokens), 6, buf);
@@ -35,7 +37,6 @@ int		read_tokens(t_fil *info)
 	while ((gnl = get_next_line(0, &buf)) > 0 && h < info->h_tokens)
 	{
 		read_string(info, buf, h);
-		ft_strdel(&buf);
 		h++;
 	}
 	return (gnl);
