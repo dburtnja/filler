@@ -6,5 +6,7 @@
 
 void	find_coordinates(t_fil *info)
 {
-	find_hostile()
+	find_hostile(info, info->p_n == 1 ? 'x' : 'o');
+
+	find_spot
 }

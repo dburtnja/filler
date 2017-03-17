@@ -16,11 +16,14 @@ typedef struct		s_fil
 	int				h_tokens;
 	int				w_tokens;
 	char			**map;
-	char			**tokens;
+	t_list			*tokens;
+	t_list			*hos_cor;
 }					t_fil;
 
 int					read_map(t_fil *info);
 void				find_coordinates(t_fil *info);
-void				find_hostile(t_fil *info);
+void				find_hostile(t_fil *info, char c);
+int					read_tokens(t_fil *info);
+t_list				*write_cordinates(int h, int w, char c);
 
 #endif

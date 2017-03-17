@@ -50,7 +50,7 @@ int		read_board(t_fil *info)
 	return (gnl);
 }
 
-int		read_tokens(t_fil *info)
+/*int		read_tokens(t_fil *info)
 {
 	char	*buf;
 	int		gnl;
@@ -73,7 +73,7 @@ int		read_tokens(t_fil *info)
 		i++;
 	}
 	return (gnl);
-}
+}*/
 
 int		read_map(t_fil *info)
 {

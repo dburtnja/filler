@@ -71,6 +71,6 @@ set(SOURCE_FILES
         libft/get_next_line.h
         libft/libft.h
         filler.h
-        main.c read_map.c libft/find_coordinates.c find_coordinates.c find_hostile.c)
+        main.c read_map.c libft/find_coordinates.c find_coordinates.c find_hostile.c read_tokens.c libft/ft_lstadd_back.c)
 
 add_executable(filler ${SOURCE_FILES})
