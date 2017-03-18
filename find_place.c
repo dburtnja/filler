@@ -44,7 +44,7 @@ int		check_one_hostage(t_list *hos, t_fil *info, int m)
 		{
 			if (try_put_tokens(info, h, w))
 			{
-				print_coordinates(h, w);
+				print_coordinates(h + info->h_m_tok, w + info->w_m_tok);
 				return (1);
 			}
 			w++;

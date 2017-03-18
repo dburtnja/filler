@@ -1,6 +1,6 @@
 #include "filler.h"
 
-void	read_string(t_fil *info, char **str, int h_m, int w_m)
+void	read_string(t_fil *info, char **str)
 {
 	t_list	*p;
 	int 	w;
@@ -15,7 +15,7 @@ void	read_string(t_fil *info, char **str, int h_m, int w_m)
 		{
 			if (str[h][w] != '.')
 			{
-				p = write_coordinates(h - h_m, w - w_m, 0);
+				p = write_coordinates(h - info->h_m_tok, w - info->w_m_tok, 0);
 				ft_lstadd_back(&(info->tokens), p);
 			}
 			w++;
@@ -25,7 +25,7 @@ void	read_string(t_fil *info, char **str, int h_m, int w_m)
 	}
 }
 
-void	find_size(char **tok, t_fil *info, int *o_h, int *o_w)
+void	find_size(char **tok, t_fil *info)
 {
 	int	h;
 	int f;
@@ -41,10 +41,10 @@ void	find_size(char **tok, t_fil *info, int *o_h, int *o_w)
 			if (tok[h][w] == '*' && f == 0)
 			{
 				f = 1;
-				*o_h = h;
+				info->h_m_tok = h;
 			}
-			if (tok[h][w] == '*' && w < *o_w)
-				*o_w = w;
+			if (tok[h][w] == '*' && w < info->w_m_tok)
+				info->w_m_tok = w;
 			w++;
 		}
 		h++;
@@ -54,7 +54,6 @@ void	find_size(char **tok, t_fil *info, int *o_h, int *o_w)
 int		read_into_array(t_fil *info)
 {
 	int		h;
-	int 	w;
 	int		gnl;
 	char	**tok;
 
@@ -62,12 +61,10 @@ int		read_into_array(t_fil *info)
 	tok = (char**)ft_memalloc(sizeof(char*) * info->h_tokens);
 	while (h < info->h_tokens && (gnl = get_next_line(0, &tok[h])) > 0)
 		h++;
-	h = 0;
-	w = INT_MAX;
 	if (gnl == 1)
 	{
-		find_size(tok, info, &h, &w);
-		read_string(info, tok, h, w);
+		find_size(tok, info);
+		read_string(info, tok);
 	}
 	return (gnl);
 }
