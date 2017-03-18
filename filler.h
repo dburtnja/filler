@@ -17,6 +17,8 @@ typedef struct		s_fil
 	int				w_map;
 	int				h_tokens;
 	int				w_tokens;
+	int				h_m_tok;
+	int 			w_m_tok;
 	char			**map;
 	t_list			*tokens;
 	t_list			*hos_cor;

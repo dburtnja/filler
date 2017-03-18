@@ -16,12 +16,12 @@ int		comp_char(char c, int p_nbr)
 	return (0);
 }
 
-void	print_coordinates(int h, int w)
+void	print_coordinates(int x, int y)
 {
-	ft_putnbr(w);
-	ft_putstr(" ");
-	ft_putnbr(h);
-	ft_putendl("");
+	ft_putnbr_fd(x, 1);
+	ft_putstr_fd(" ", 1);
+	ft_putnbr_fd(y, 1);
+	ft_putendl_fd("", 1);
 }
 
 void	find_coordinates(t_fil *info)

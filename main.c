@@ -32,6 +32,8 @@ void	init_info(t_fil *info)
 	info->map = 0;
 	info->tokens = 0;
 	info->hos_cor = 0;
+	info->h_m_tok = 0;
+	info->w_m_tok = INT_MAX;
 }
 
 int		main(void)
