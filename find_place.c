@@ -18,7 +18,7 @@ int		try_put_tokens(t_fil *info, int h, int w)
 	{
 		h_t = ((int*)(p->content))[0] + h;
 		w_t = ((int*)(p->content))[1] + w;
-		if (h_t < 0 || w_t < 0 || h_t > info->h_map || w_t > info->w_map)
+		if (h_t < 0 || w_t < 0 || h_t >= info->h_map || w_t >= info->w_map)
 			return (0);
 		if (comp_char(map[h_t][w_t], info->p_n == 1 ? 2 : 1))
 			return (0);
