@@ -73,5 +73,5 @@ void	find_place(t_fil *info)
 		}
 		m++;
 	}
-	ft_putendl("Cannot place anywhere");
+	ft_putendl("Cannot place anywhere!");
 }
