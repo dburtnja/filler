@@ -40,8 +40,8 @@ int		read_board(t_fil *info)
 	char	*buf;
 	int		i;
 
-	i = 1;
-	while ((gnl = get_next_line(0, &buf)) > 0 && i < info->h_map)
+	i = 0;
+	while (i < info->h_map && (gnl = get_next_line(0, &buf)) > 0 )
 	{
 		(info->map)[i] = buf + 4;
 		i++;

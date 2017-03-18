@@ -29,7 +29,7 @@ void	find_hostile(t_fil *info, char c)
 		w = 0;
 		while (info->w_map > w)
 		{
-			if ((info->map)[h][w] == c || (info->map)[h][w] == c - 53)
+			if ((info->map)[h][w] == c || (info->map)[h][w] == c - 32)
 			{
 				p = write_coordinates(h, w, c);
 				ft_lstadd_back(&head, p);

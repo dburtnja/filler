@@ -37,9 +37,9 @@ int		check_one_hostage(t_list *hos, t_fil *info, int m)
 	int 	w;
 
 	h = ((int*)(hos->content))[0] - m;
-	w = ((int*)(hos->content))[1] - m;
 	while (h <= ((int*)(hos->content))[0] + m)
 	{
+		w = ((int*)(hos->content))[1] - m;
 		while (w <= ((int*)(hos->content))[1] + m)
 		{
 			if (try_put_tokens(info, h, w))
@@ -61,7 +61,7 @@ void	find_place(t_fil *info)
 	int		m_max;
 
 	m = 1;
-	m_max = (info->w_map > info->h_map ? info->w_map : info->h_map) / 2;
+	m_max = (info->w_map > info->h_map ? info->w_map : info->h_map);
 	while (m < m_max)
 	{
 		p = info->hos_cor;
