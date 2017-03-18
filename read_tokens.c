@@ -1,20 +1,27 @@
 #include "filler.h"
 
-void	read_string(t_fil *info, char *str, int h)
+void	read_string(t_fil *info, char **str, int h_m, int w_m)
 {
 	t_list	*p;
 	int 	w;
+	int		h;
 
-	w = 0;
+	h = 0;
 	info->tokens = NULL;
-	while (info->w_tokens > w)
+	while (info->h_tokens > h)
 	{
-		if (str[w] != '.')
+		w = 0;
+		while (info->w_tokens > w)
 		{
-			p = write_coordinates(h, w, 0);
-			ft_lstadd_back(&(info->tokens), p);
+			if (str[h][w] != '.')
+			{
+				p = write_coordinates(h - h_m, w - w_m, 0);
+				ft_lstadd_back(&(info->tokens), p);
+			}
+			w++;
 		}
-		w++;
+		ft_strdel(&(str[h]));
+		h++;
 	}
 }
 
@@ -32,6 +39,7 @@ void	find_size(char **tok, t_fil *info, int *o_h, int *o_w)
 			if (tok[h][w] == '*' && *o_h == 0)
 				*o_h = h;
 			if (tok[h][w] == '*' && *o_w < w)
+				*o_w = w;
 			w++;
 		}
 		h++;
@@ -46,14 +54,16 @@ int		read_into_array(t_fil *info)
 	char	**tok;
 
 	h = 1;
-	tok = (char**)ft_memalloc(sizeof(char*) * info->h_tokens)
+	tok = (char**)ft_memalloc(sizeof(char*) * info->h_tokens);
 	while ((gnl = get_next_line(0, &tok[h - 1])) > 0 && h < info->h_tokens)
 		h++;
 	h = 0;
 	w = 0;
-	find_size(tok, info, &h, &w);
 	if (gnl == 1)
-		read_string();
+	{
+		find_size(tok, info, &h, &w);
+		read_string(info, tok, h, w);
+	}
 	return (gnl);
 }
 
