@@ -49,31 +49,6 @@ int		read_board(t_fil *info)
 	return (gnl);
 }
 
-/*int		read_tokens(t_fil *info)
-{
-	char	*buf;
-	int		gnl;
-	int		i;
-
-	if ((gnl = get_next_line(0, &buf)) > 0)
-	{
-		read_sizes(&(info->h_tokens), &(info->w_tokens), 6, buf);
-		ft_strdel(&buf);
-	}
-	else
-		return (gnl);
-	if (!(info->tokens = (char**)ft_memalloc(sizeof(char*) * (info->h_tokens
-															  + 1))))
-		return (-1);
-	i = 0;
-	while ((gnl = get_next_line(0, &buf)) > 0 && i < info->h_tokens)
-	{
-		(info->map)[i] = buf;
-		i++;
-	}
-	return (gnl);
-}*/
-
 int		read_map(t_fil *info)
 {
 	int		gnl;
@@ -88,26 +63,3 @@ int		read_map(t_fil *info)
 		return (gnl);
 	return (gnl);
 }
-//$$$ exec p1 : [players/filler]
-
-/*
-Plateau 15 17:
-    01234567890123456
-000 .................
-001 .................
-002 .................
-003 .................
-004 .................
-005 .................
-006 .................
-007 .................
-008 ..OOO..O.........
-009 ...OOOOOOOOOO....
-010 ........xXXX.....
-011 ........x.XXXX...
-012 ..............X..
-013 .................
-014 .................
-Piece 1 3:
-**.
- */

@@ -21,7 +21,7 @@ typedef struct		s_fil
 	char			**map;
 	t_list			*tokens;
 	t_list			*hos_cor;
-	int			*all_target;
+	int				*all_target;
 }					t_fil;
 
 int					read_map(t_fil *info);
