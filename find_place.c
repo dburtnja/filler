@@ -46,8 +46,7 @@ int		check_one_hostage(t_list *hos, t_fil *info, int m)
 		{
 			if (try_put_tokens(info, h, w))
 			{
-				write_into_info(info, hos, h + info->h_m_tok, w +
-						info->w_m_tok);
+				write_into_info(info, hos, h, w);
 				f++;
 			}
 			w++;
@@ -78,7 +77,8 @@ void	find_place(t_fil *info)
 		m += f != 0 ? m_max : 1;
 	}
 	if (f != 0)
-		print_coordinates((info->all_target)[1], (info->all_target)[2]);
+		print_coordinates((info->all_target)[1] - info->h_m_tok,
+						  (info->all_target)[2] - info->w_m_tok);
 	else
 		ft_putendl_fd("Cannot place anywhere!", 1);
 }
