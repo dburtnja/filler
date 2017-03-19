@@ -18,9 +18,11 @@ int		comp_char(char c, int p_nbr)
 
 void	print_coordinates(int x, int y)
 {
-	ft_putnbr_fd(x, 1);
+	x = 22;
+	y = 77;
+	ft_putnbr_fd(222, 1);
 	ft_putstr_fd(" ", 1);
-	ft_putnbr_fd(y, 1);
+	ft_putnbr_fd(7777, 1);
 	ft_putendl_fd("", 1);
 }
 
