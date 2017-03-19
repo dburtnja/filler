@@ -8,7 +8,6 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-# define INT_MIN		-2147483648
 # define INT_MAX		2147483647
 typedef struct		s_fil
 {
@@ -22,6 +21,7 @@ typedef struct		s_fil
 	char			**map;
 	t_list			*tokens;
 	t_list			*hos_cor;
+	int			*all_target;
 }					t_fil;
 
 int					read_map(t_fil *info);
@@ -33,6 +33,7 @@ int					comp_char(char c, int p_nbr);
 void				print_coordinates(int h, int w);
 void				find_place(t_fil *info);
 void				read_sizes(int *h_size, int *w_size, int from, char *buf);
+void				write_into_info(t_fil *info, t_list *hos, int h, int w);
 
 
 #endif

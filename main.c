@@ -34,6 +34,8 @@ void	init_info(t_fil *info)
 	info->hos_cor = 0;
 	info->h_m_tok = 0;
 	info->w_m_tok = INT_MAX;
+	info->all_target = (int*)ft_memalloc(sizeof(int) * 3);
+	(info->all_target)[0] = INT_MAX;
 }
 
 int		main(void)

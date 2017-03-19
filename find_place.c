@@ -35,7 +35,9 @@ int		check_one_hostage(t_list *hos, t_fil *info, int m)
 {
 	int		h;
 	int 	w;
+	int 	f;
 
+	f = 0;
 	h = ((int*)(hos->content))[0] - m;
 	while (h <= ((int*)(hos->content))[0] + m)
 	{
@@ -44,22 +46,25 @@ int		check_one_hostage(t_list *hos, t_fil *info, int m)
 		{
 			if (try_put_tokens(info, h, w))
 			{
-				print_coordinates(h + info->h_m_tok, w + info->w_m_tok);
-				return (1);
+				write_into_info(info, hos, h + info->h_m_tok, w +
+						info->w_m_tok);
+				f++;
 			}
 			w++;
 		}
 		h++;
 	}
-	return (0);
+	return (f);
 }
 
 void	find_place(t_fil *info)
 {
 	t_list	*p;
 	int		m;
+	int		f;
 	int		m_max;
 
+	f = 0;
 	m = 1;
 	m_max = (info->w_map > info->h_map ? info->w_map : info->h_map);
 	while (m < m_max)
@@ -67,11 +72,13 @@ void	find_place(t_fil *info)
 		p = info->hos_cor;
 		while (p)
 		{
-			if (check_one_hostage(info->hos_cor, info, m))
-				return ;
+			f += check_one_hostage(p, info, m);
 			p = p->next;
 		}
-		m++;
+		m += f != 0 ? m_max : 1;
 	}
-	ft_putendl("Cannot place anywhere!");
+	if (f != 0)
+		print_coordinates((info->all_target)[1], (info->all_target)[2]);
+	else
+		ft_putendl_fd("Cannot place anywhere!", 1);
 }
