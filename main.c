@@ -22,9 +22,9 @@ int		read_player_nbr(void)
 	return (-1);
 }
 
-void	init_info(t_fil *info)
+void	init_info(t_fil *info, int p_n)
 {
-	info->p_n = 0;
+	info->p_n = p_n;
 	info->h_map = 0;
 	info->w_map = 0;
 	info->h_tokens = 0;
@@ -43,11 +43,14 @@ int		main(void)
 	t_fil info;
 	int r;
 
-	init_info(&info);
+	init_info(&info, 0);
 	if ((info.p_n = read_player_nbr()) == -1)
 		return (-1);
 	while ((r = read_map(&(info))) > 0)
+	{
 		find_coordinates(&info);
+		init_info(&info, info.p_n);
+	}
 	if (r == -1)
 		perror("Cannot read MAP: ");
 	return (0);
