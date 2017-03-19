@@ -15,9 +15,14 @@
 int		read_player_nbr(void)
 {
 	char	*buf;
+	int		s;
 
 	if (get_next_line(0, &buf))
-		return (buf[10] - '0');
+	{
+		s = buf[10] - '0';
+		ft_strdel(&buf);
+		return (s);
+	}
 	perror("Cannot read PLAYER_NUMBER: ");
 	return (-1);
 }
