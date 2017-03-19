@@ -20,7 +20,8 @@ SRC =	main.c\
         find_coordinates.c\
         find_hostile.c\
         read_tokens.c\
-        find_place.c
+        find_place.c\
+        help_find_place.c
 
 OBJ = $(SRC:.c=.o)
 
