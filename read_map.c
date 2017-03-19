@@ -27,7 +27,7 @@ int		read_map_size(t_fil *info)
 	}
 	else
 		return (gnl);
-	if ((gnl = get_next_line(0, &buf)) > 0)		//dell the first string in map
+	if ((gnl = get_next_line(0, &buf)) > 0)
 		ft_strdel(&buf);
 	else
 		return (gnl);

@@ -63,7 +63,7 @@ void	free_arr(char ***arr, int size)
 	p_arr = *arr;
 	while (size > i)
 	{
-		free(p_arr[i]);
+		free(p_arr[i] - 4);
 		i++;
 	}
 	free(p_arr);
