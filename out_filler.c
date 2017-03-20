@@ -3,8 +3,9 @@
 //
 
 #include "filler.h"
+#include <curses.h>
 
-int		main(int argc, char *argv)
+int		main(int argc, char **argv)
 {
 	char	*buf;
 
