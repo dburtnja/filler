@@ -7,7 +7,10 @@
 int		main(int argc, char **argv)
 {
 	char	*buf;
-	int		i;
+	int		time;
+	int		t;
+
+	if (argc > 1)
 
 	while (get_next_line(0, &buf) > 0)
 	{
@@ -23,7 +26,7 @@ int		main(int argc, char **argv)
 		ft_putendl(buf);
 		ft_putendl(buf);
 		ft_putendl(buf);
-		i = 10000000;
+		time = 10000000 * t;
 		while (i > 0)
 			i--;
 		ft_strdel(&buf);
