@@ -3,7 +3,6 @@
 //
 
 #include "filler.h"
-#include <curses.h>
 
 int		main(int argc, char **argv)
 {
@@ -13,7 +12,7 @@ int		main(int argc, char **argv)
 	{
 		ft_putendl(buf);
 		ft_strdel(&buf);
-		clear();
+		ft_putstr("\033[2J");
 	}
 	return (0);
 }
