@@ -11,7 +11,7 @@ t_list	*write_coordinates(int h, int w, char c)
 
 	coor[0] = h;
 	coor[1] = w;
-	coor[2] = c >= 'A' && c <= 'Z' ? 1 : 0;
+	coor[2] = c >= 'a' && c <= 'z' ? 1 : 0;
 	return (ft_lstnew((void*)&coor[0], sizeof(coor)));
 }
 
