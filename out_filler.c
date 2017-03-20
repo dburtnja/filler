@@ -23,10 +23,10 @@ int		main(int argc, char **argv)
 		ft_putendl(buf);
 		ft_putendl(buf);
 		ft_putendl(buf);
-		ft_strdel(&buf);
-	i = 100000;
+		i = 10000000;
 		while (i > 0)
 			i--;
+		ft_strdel(&buf);
 		ft_putstr("\033[2J");
 		ft_putstr("\033[0;0f");
 	}
