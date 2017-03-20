@@ -13,6 +13,8 @@
 LIB = libft/libft.a
 
 NAME = ./resources/players/filler #change to ./
+BONUS = ./resources/bonus
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRC =	main.c\
@@ -23,9 +25,14 @@ SRC =	main.c\
         find_place.c\
         help_find_place.c
 
-OBJ = $(SRC:.c=.o)
+B_SRC = bonus/check_flag.c\
+        bonus/out_filler.c\
+        bonus/read_input.c
 
-all:	$(LIB) $(NAME)
+OBJ = $(SRC:.c=.o)
+B_OBJ = $(B_SRC:.c=.o)
+
+all:	$(LIB) $(NAME) $(BONUS)
 
 $(LIB):
 		make -C ./libft
@@ -35,14 +42,23 @@ $(NAME): $(OBJ)
 %.o: %.c
 		@$(CC) -c $(CFLAGS) -o $@ $<
 
+$(BONUS): $(B_OBJ)
+		@$(CC) $(CFLAGS) $(B_OBJ) -o $(BONUS) $(LIB)
+%.o: %.c
+		@$(CC) -c $(CFLAGS) -o $@ $<
+
+
 clean:
 		@make clean -C ./libft
 		@rm -f $(OBJ)
+		@rm -f $(B_OBJ)
 
 fclean:
 		@make fclean -C ./libft
 		@make clean
 		@rm -f $(NAME)
+		@rm -f $(BONUS)
+
 re:
 		@make fclean
 		@make all

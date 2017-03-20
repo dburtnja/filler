@@ -17,10 +17,7 @@ void	read_flags(char **p_argv, int *flag)
 	if (p_argv[0][0] == '-' && p_argv[0][1] == 'c')
 		flag[0] = 1;
 	if (p_argv[0][0] == '-' && p_argv[0][1] == 't')
-	{
 		flag[1] = ft_atoi(p_argv[1]);
-		p_argv++;
-	}
 }
 
 void	check_flag(int *flag, char ***argv, int *argc)

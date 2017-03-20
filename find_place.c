@@ -80,5 +80,5 @@ void	find_place(t_fil *info)
 		print_coordinates((info->all_target)[1] - info->h_m_tok,
 						  (info->all_target)[2] - info->w_m_tok);
 	else
-		ft_putendl_fd("Cannot place anywhere!", 1);
+		ft_putendl_fd("0 0", 1);
 }

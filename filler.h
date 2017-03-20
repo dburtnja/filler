@@ -12,6 +12,8 @@
 # define BLUE			"\x1b[34m"
 # define RED			"\x1b[31m"
 # define RESET			"\x1b[0m"
+# define CLEARE			"\033[2J"
+# define TO_BEGIN		"\033[0;0f"
 # define INT_MAX	2147483647
 
 typedef struct		s_fil
@@ -34,7 +36,9 @@ typedef	struct		s_bon
 	int				flag[2];
 	int				p_n;
 	char			*header;
-
+	char			*o;
+	int				map_size;
+	int				piece_size;
 }					t_bon;
 
 int					read_map(t_fil *info);
@@ -48,7 +52,7 @@ void				find_place(t_fil *info);
 void				read_sizes(int *h_size, int *w_size, int from, char *buf);
 void				write_into_info(t_fil *info, t_list *hos, int h, int w);
 void				check_flag(int *flag, char ***argv, int *argc);
-void				read_input(int *flags);
+int					read_input(t_bon *info);
 int					read_player_nbr(void);
 
 #endif
