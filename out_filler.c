@@ -13,6 +13,7 @@ int		main(int argc, char **argv)
 		ft_putendl(buf);
 		ft_strdel(&buf);
 		ft_putstr("\033[2J");
+		ft_putstr("\033[0;0f");
 	}
 	return (0);
 }
