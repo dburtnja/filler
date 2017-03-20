@@ -10,23 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../filler.h"
 
-int		read_flags(char **p_argv, int *flag)
+void	read_flags(char **p_argv, int *flag)
 {
-	if (p_argv[0][0] == '-' && p_argv[0][1] == 'v')
+	if (p_argv[0][0] == '-' && p_argv[0][1] == 'c')
 		flag[0] = 1;
-	else if (p_argv[0][0] == '-' && p_argv[0][1] == 'c')
-		flag[1] = 1;
-	else if (p_argv[0][0] == '-' && p_argv[0][1] == 'l')
-		flag[2] = 1;
-	else if (p_argv[0][0] == '-' && p_argv[0][1] == 's')
-		flag[3] = 0;
-	else if (p_argv[0][0] == '-' && p_argv[0][1] == 'f')
-		flag[4] = 1;
-	else
-		return (1);
-	return (0);
+	if (p_argv[0][0] == '-' && p_argv[0][1] == 't')
+	{
+		flag[1] = ft_atoi(p_argv[1]);
+		p_argv++;
+	}
 }
 
 void	check_flag(int *flag, char ***argv, int *argc)
@@ -34,17 +28,13 @@ void	check_flag(int *flag, char ***argv, int *argc)
 	char	**p_argv;
 
 	flag[0] = 0;
-	flag[1] = 0;
-	flag[2] = 0;
-	flag[3] = -1;
-	flag[4] = -1;
+	flag[1] = 1;
 	p_argv = *argv;
 	p_argv++;
 	(*argc)--;
 	while (*argc > 1)
 	{
-		if (read_flags(p_argv, flag))
-			break ;
+		read_flags(p_argv, flag);
 		(*argc)--;
 		p_argv++;
 	}
