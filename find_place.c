@@ -73,6 +73,8 @@ void	find_place(t_fil *info)
 		{
 			f += check_one_hostage(p, info, m);
 			p = p->next;
+			if (info->win > 0)
+				break;
 		}
 		m += f != 0 ? m_max : 1;
 	}

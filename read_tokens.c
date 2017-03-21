@@ -15,7 +15,8 @@ void	read_string(t_fil *info, char **str)
 		{
 			if (str[h][w] != '.')
 			{
-				p = write_coordinates(h - info->h_m_tok, w - info->w_m_tok, 0);
+				p = write_coordinates(h - info->h_m_tok, w - info->w_m_tok,
+									  0, NULL);
 				ft_lstadd_back(&(info->tokens), p);
 			}
 			w++;

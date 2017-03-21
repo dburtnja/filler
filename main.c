@@ -41,6 +41,7 @@ void	init_info(t_fil *info)
 	info->w_m_tok = INT_MAX;
 	info->all_target = (int*)ft_memalloc(sizeof(int) * 3);
 	(info->all_target)[0] = INT_MAX;
+	info->win = 0;//aaaaaaaaaaa
 }
 
 void	lst_free(t_list **lst)
@@ -88,6 +89,7 @@ void	free_info(t_fil *info, int p_n)
 	info->h_m_tok = 0;
 	info->w_m_tok = INT_MAX;
 	(info->all_target)[0] = INT_MAX;
+	info->win = 0;//aaaaaaa
 }
 
 int		main(void)

@@ -5,13 +5,14 @@
 #include "filler.h"
 
 
-t_list	*write_coordinates(int h, int w, char c)
+t_list	*write_coordinates(int h, int w, char c, int *win)
 {
-	int		coor[3];
+	int		coor[2];
 
 	coor[0] = h;
 	coor[1] = w;
-	coor[2] = c >= 'a' && c <= 'z' ? 1 : 0;
+	if (win && c >= 'a' && c <= 'z')
+		*win = 1;
 	return (ft_lstnew((void*)&coor[0], sizeof(coor)));
 }
 
@@ -31,7 +32,7 @@ void	find_hostile(t_fil *info, char c)
 		{
 			if ((info->map)[h][w] == c || (info->map)[h][w] == c - 32)
 			{
-				p = write_coordinates(h, w, c);
+				p = write_coordinates(h, w, c, &(info->win));
 				ft_lstadd_back(&head, p);
 			}
 			w++;

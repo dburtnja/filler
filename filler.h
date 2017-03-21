@@ -29,6 +29,7 @@ typedef struct		s_fil
 	t_list			*tokens;
 	t_list			*hos_cor;
 	int				*all_target;
+	int				win;
 }					t_fil;
 
 typedef	struct		s_bon
@@ -45,7 +46,7 @@ int					read_map(t_fil *info);
 void				find_coordinates(t_fil *info);
 void				find_hostile(t_fil *info, char c);
 int					read_tokens(t_fil *info);
-t_list				*write_coordinates(int h, int w, char c);
+t_list				*write_coordinates(int h, int w, char c, int *win);
 int					comp_char(char c, int p_nbr);
 void				print_coordinates(int h, int w);
 void				find_place(t_fil *info);
