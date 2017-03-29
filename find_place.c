@@ -1,14 +1,23 @@
-//
-// Created by Denys on 17.03.2017.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_place.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/20 21:47:01 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/21 16:49:04 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
 int		try_put_tokens(t_fil *info, int h, int w)
 {
 	t_list	*p;
 	char	**map;
-	int 	h_t;
-	int 	w_t;
+	int		h_t;
+	int		w_t;
 	int		my;
 
 	my = 0;
@@ -34,8 +43,8 @@ int		try_put_tokens(t_fil *info, int h, int w)
 int		check_one_hostage(t_list *hos, t_fil *info, int m)
 {
 	int		h;
-	int 	w;
-	int 	f;
+	int		w;
+	int		f;
 
 	f = 0;
 	h = ((int*)(hos->content))[0] - m;
@@ -73,14 +82,14 @@ void	find_place(t_fil *info)
 		{
 			f += check_one_hostage(p, info, m);
 			p = p->next;
-			if (info->win > 0)
-				break;
+			if (info->win != 1)
+				break ;
 		}
 		m += f != 0 ? m_max : 1;
 	}
 	if (f != 0)
 		print_coordinates((info->all_target)[1] - info->h_m_tok,
-						  (info->all_target)[2] - info->w_m_tok);
+			(info->all_target)[2] - info->w_m_tok);
 	else
 		ft_putendl_fd("0 0", 1);
 }

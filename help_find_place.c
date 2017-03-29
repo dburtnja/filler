@@ -1,6 +1,14 @@
-//
-// Created by Denys on 19.03.2017.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   help_find_place.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/20 21:37:17 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/20 21:37:21 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "filler.h"
 
@@ -28,9 +36,7 @@ void	write_into_info(t_fil *info, t_list *hos, int h, int w)
 	int		dis;
 
 	dis = manhattan_distance(h, w, ((int*)(hos->content))[0],
-								 ((int*)(hos->content))[1]);
-	if (!(info->all_target))
-		write_into_cont((info->all_target), dis, h, w);
+		((int*)(hos->content))[1]);
 	if (((info->all_target))[0] > dis)
 		write_into_cont((info->all_target), dis, h, w);
 }

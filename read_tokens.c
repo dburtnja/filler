@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_tokens.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/20 21:36:07 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/21 15:07:21 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
 void	read_string(t_fil *info, char **str)
 {
 	t_list	*p;
-	int 	w;
+	int		w;
 	int		h;
 
 	h = 0;
@@ -16,7 +28,7 @@ void	read_string(t_fil *info, char **str)
 			if (str[h][w] != '.')
 			{
 				p = write_coordinates(h - info->h_m_tok, w - info->w_m_tok,
-									  0, NULL);
+						0, NULL);
 				ft_lstadd_back(&(info->tokens), p);
 			}
 			w++;

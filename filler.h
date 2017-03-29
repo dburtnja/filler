@@ -1,9 +1,17 @@
-//
-// Created by Denys Burtnjak on 3/15/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   filler.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/20 21:46:19 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/21 15:04:54 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FILLER_H
-#define FILLER_H
+# define FILLER_H
 
 # include <stdio.h>
 # include "libft/libft.h"
@@ -24,7 +32,7 @@ typedef struct		s_fil
 	int				h_tokens;
 	int				w_tokens;
 	int				h_m_tok;
-	int 			w_m_tok;
+	int				w_m_tok;
 	char			**map;
 	t_list			*tokens;
 	t_list			*hos_cor;
@@ -55,5 +63,7 @@ void				write_into_info(t_fil *info, t_list *hos, int h, int w);
 void				check_flag(int *flag, char ***argv, int *argc);
 int					read_input(t_bon *info);
 int					read_player_nbr(void);
+void				lst_free(t_list **lst);
+void				free_arr(char ***arr, int size);
 
 #endif

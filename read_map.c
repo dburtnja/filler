@@ -1,6 +1,14 @@
-//
-// Created by Denys on 16.03.2017.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/20 21:56:34 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/20 21:56:36 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "filler.h"
 
@@ -41,7 +49,7 @@ int		read_board(t_fil *info)
 	int		i;
 
 	i = 0;
-	while (i < info->h_map && (gnl = get_next_line(0, &buf)) > 0 )
+	while (i < info->h_map && (gnl = get_next_line(0, &buf)) > 0)
 	{
 		(info->map)[i] = buf + 4;
 		i++;
